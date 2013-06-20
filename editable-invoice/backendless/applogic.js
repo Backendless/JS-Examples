@@ -35,6 +35,7 @@ var renderApp = function(invoices) {
     }
     App.render();
 }
+
 var handleInvoiceSave = function(properties) {
     try{
         var obj = App.store.invoices.find({
@@ -59,32 +60,25 @@ var handleInvoiceSave = function(properties) {
         App.store.invoices.save(properties);
     }
 }
+
 var handleInvoiceDelete = function(properties) {
     console.log("delete invoice");
-    //  Backendless.Messaging.Publish( "removeInvoice", properties);
     App.store.invoices.remove( properties, new Backendless.Async(function(){
-        //Backendless.Messaging.Publish( "removeInvoice", properties);
     }));
 }
+
 var handleInvoiceDownload = function(invoice) {
     Backendless.convert( invoice.$el )
         .to( invoice.fileName('png') )
         .download()
 }
+
 var handleInvoiceSend = function(invoice) {
     var recipient = prompt("Recipient: ");
     if (! recipient)
         return
-    /*
-     hoodie.email.send({
-     to: recipient,
-     subject: invoice.title(),
-     html: invoice.toHTML(),
-     text: invoice.toText(),
-     attachments: [ hoodie.convert( $('.invoiceSheet') ).to("invoice.png") ]
-     });
-     */
 };
+
 var handleSignUp = function(inputs) {
     var user = new Backendless.User();
     user.login = inputs.username;
@@ -128,7 +122,6 @@ var handleResetPassword = function(inputs) {
         }, App.renderModalFormError ) )
 };
 var handleAccountDestroy = function() {
-//    hoodie.account.destroy()
 };
 
 var handleNewInvoiceFromRemote = function( invoice ) {
