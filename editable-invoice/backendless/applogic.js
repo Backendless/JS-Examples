@@ -88,7 +88,7 @@ var handleInvoiceSend = function(invoice) {
 var handleSignUp = function(inputs) {
     var user = new Backendless.User();
     user.login = inputs.username;
-    user.email = inputs.username + "@" + "gmail.com";
+    user.email = inputs.email;
     user.password = inputs.password;
     Backendless.UserService.register( user,
         new Backendless.Async( function(){
