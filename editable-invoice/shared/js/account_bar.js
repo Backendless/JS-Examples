@@ -18,7 +18,7 @@ AccountBar.prototype.handleUserAction = function(event) {
   switch(action) {
     case 'signup':
       $form = $.modalForm({
-        fields: [ 'username', 'password', 'password_confirmation' ],
+        fields: [ 'username', 'email', 'password', 'password_confirmation' ],
         submit: 'Sign Up'
       });
       break;
