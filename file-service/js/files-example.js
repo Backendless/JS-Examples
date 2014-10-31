@@ -75,10 +75,10 @@ function refreshItemsList()
     $(".thumbnails").empty();
 
     $.each(items, function(index, value) {
-          var name = getRelativeFileName(value.url);
+        var name = getRelativeFileName(value.url);
 //        $(".thumbnails").append("<li class='span4'> <a href='#' class='thumbnail' onclick='onClickFunc(this)'> <img id='" + value.objectId + "'  max-width='300px' max-height='300px'src='" + value.url + "'  alt=''></a></li>");
-          $(".thumbnails").append("<li class='span4'> <div class='thumbnail' onclick='onClickFunc(this)'> <img class='dataPicture' id='" + value.objectId + "' src='"
-           + value.url + "'  alt=''><div align='center'><a href='" + value.url +  "' >" + decodeURIComponent(protectXSS(name)) + "</a></div></div></li>");
+        $(".thumbnails").append("<li class='span4'> <div class='thumbnail' onclick='onClickFunc(this)'> <img class='dataPicture' id='" + value.objectId + "' src='"
+            + value.url + "'  alt=''><div align='center'><a href='" + value.url +  "' >" + decodeURIComponent(protectXSS(name)) + "</a></div></div></li>");
     });
 }
 
@@ -100,9 +100,9 @@ function getItemsFromPersistance()
     catch( e )
     {
         if(e.code == 1009 )
-          alert( "Please upload a file first" );
+            alert( "Please upload a file first" );
         else
-          alert(e.message);
+            alert(e.message);
     }
 
     return [];
