@@ -40,7 +40,7 @@ var handleInvoiceSave = function(properties) {
     try{
         var obj = App.store.invoices.find({
             options:{
-                related: ["items"]
+                relationsDepth: 1
             },
             condition: "id='" + properties.id +"'"
         }).data[0];
