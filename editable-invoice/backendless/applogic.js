@@ -1,5 +1,4 @@
-Backendless.serverURL="http://localhost:9000";
-Backendless.initApp("2E09EB02-FD57-7EA6-FF29-65844A152100", "4DA09BF9-5B36-5FAD-FF79-514797E08A00", "v1");
+Backendless.initApp("APP-ID", "SECRET_KEY", "VERSION");
 
 $('document').ready( function() {
     // bootstrap & render App
