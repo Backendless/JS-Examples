@@ -3,7 +3,7 @@ var Invoice = function( $el, attributes ) {
   if (! attributes) {
     attributes = this.defaultAttributes();
   }else{
-        attributes.items = attributes.items || [ this.defaultItemAttributes() ];
+    attributes.items = attributes.items || [ this.defaultItemAttributes() ];
   }
   $.extend(this, attributes);
 };
@@ -14,7 +14,7 @@ Invoice.prototype.defaultAttributes = function() {
     id       : this.uuid(),
     nr       : "",
     items    : [ this.defaultItemAttributes() ],
-    date     : ( new Date() ).toJSON().substr(0,10),
+    invoice_date     : ( new Date() ).toJSON().substr(0,10),
     header   : "INVOICE",
     terms    : 'NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.',
     address  : "",
@@ -44,7 +44,7 @@ Invoice.prototype.fileName = function(ext) {
 
   if (this.nr) {
     basename = basename + "_" + this.nr;
-  } 
+  }
   return  basename + "." + ext;
 };
 
@@ -101,7 +101,7 @@ Invoice.prototype.findItem = function(id) {
   }
   for(var i = 0, item; item = this.items[i]; i ++){
     if (item.id === id) {
-        foundItem = item;
+      foundItem = item;
     }
   }
   return foundItem;
@@ -110,7 +110,7 @@ Invoice.prototype.reset = function() {
   this.___class = "invoice";
   this.id       = this.id || this.uuid()
   this.items    = []
-  this.date     = ''
+  this.invoice_date     = ''
   this.header   = ''
   this.terms    = ''
   this.address  = ''
@@ -121,7 +121,7 @@ Invoice.prototype.toJSON = function() {
   return $.extend(true, {}, {
     id        : this.id,
     items     : this.items,
-    date      : this.date,
+    invoice_date      : this.date,
     header    : this.header,
     terms     : this.terms,
     address   : this.address,
@@ -131,7 +131,7 @@ Invoice.prototype.toJSON = function() {
   });
 }
 Invoice.prototype.save = function(event) {
-  if (event) 
+  if (event)
     event.stopPropagation();
 
   var this_ = this;
@@ -173,7 +173,7 @@ Invoice.prototype['delete'] = function() {
 Invoice.prototype.addItem = function() {
   var item = this.defaultItemAttributes();
   var html = ich.invoiceItem( item )
-  this.$items.append( html );  
+  this.$items.append( html );
   var $el = this.$items.find('[data-item-id="'+item.id+'"]')
   $el.find('textarea').autosize();
   this.items.push( item );
@@ -237,9 +237,9 @@ Invoice.prototype.on = function(eventName, callback) {
 },
 
 
-Invoice.prototype.trigger = function() {
-  this.$el.trigger.apply(this.$el, arguments)
-};
+    Invoice.prototype.trigger = function() {
+      this.$el.trigger.apply(this.$el, arguments)
+    };
 
 Invoice.prototype.uuid = function(len) {
   var chars, i, radix;
