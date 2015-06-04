@@ -5,7 +5,7 @@ $('document').ready( function() {
 
     function Invoice(){}
     App.store = {};
-    App.store.invoices = Backendless.Persistence.of(Invoice);
+    App.store.invoices = Backendless.Persistence.of( Invoice );
     try{
         renderApp(App.store.invoices.find({
             options:{

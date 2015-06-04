@@ -198,7 +198,7 @@ jQuery(function( $ ) {
     {
 		try
 		{
-			return Backendless.Persistence.of(Task).find().data
+			return Backendless.Persistence.of( Task ).find().data;
 		}
         catch( e )
         {
