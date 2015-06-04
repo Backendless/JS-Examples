@@ -196,10 +196,10 @@ jQuery(function( $ ) {
 
     function getItems()
     {
-        try
-        {
+	 try
+	 {
             return Backendless.Persistence.of( Task ).find().data;
-        }
+	 }
         catch( e )
         {
             if( e.code != 1009 )
