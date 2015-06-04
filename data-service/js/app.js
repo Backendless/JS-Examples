@@ -196,12 +196,9 @@ jQuery(function( $ ) {
 
     function getItems()
     {
-		try {
-			var entity = new Task(),
-				db = Backendless.Persistence.of( Task );
-			db.save(entity);
-
-			return db.find().data;
+		try
+		{
+			return Backendless.Persistence.of(Task).find().data
 		}
         catch( e )
         {

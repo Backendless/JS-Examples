@@ -4,10 +4,8 @@ $('document').ready( function() {
     // bootstrap & render App
 
     function Invoice(){}
-    var entity = new Invoice();
     App.store = {};
     App.store.invoices = Backendless.Persistence.of(Invoice);
-    App.store.invoices.save(entity);
     try{
         renderApp(App.store.invoices.find({
             options:{
